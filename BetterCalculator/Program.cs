@@ -5,7 +5,9 @@ RCET2265
 BetterCalculator
 github url: 
 */
-namespace SimpleCalculator
+using System.ComponentModel.Design;
+
+namespace BetterCalculator
 {
     internal class Program
     {
@@ -13,37 +15,135 @@ namespace SimpleCalculator
         {
 
             string userinput = "";
-            int firstNumber, secondNumber, thirdNumber;
+            int firstNumber = 0, secondNumber = 0, thirdNumber = 0;
+            bool isValid = false;
+            string message = "";
 
-            Console.WriteLine("please enter your first number");
-            userinput = Console.ReadLine();
-            firstNumber = int.Parse(userinput);
-            Console.WriteLine($"You entered {firstNumber}");
-
-            Console.WriteLine("please enter your second number");
-            userinput = Console.ReadLine();
-            secondNumber = int.Parse(userinput);
-            Console.WriteLine($"You entered {secondNumber}");
-
-            Console.WriteLine("Please enter a number to select how you'd like to solve! (1-4)");
-            userinput = Console.ReadLine();
-            thirdNumber = int.Parse(userinput);
-
-            switch (userinput)
+            do
             {
-                case "1":
-                    Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}");
-                    break;
-                case "2":
-                    Console.WriteLine($"{firstNumber} - {secondNumber} = {firstNumber - secondNumber}");
-                    break;
-                case "3":
-                    Console.WriteLine($"{firstNumber} * {secondNumber} = {firstNumber * secondNumber}");
-                    break;
-                case "4":
-                    Console.WriteLine($"{firstNumber} / {secondNumber} = {firstNumber / secondNumber}");
-                    break;
+                Console.WriteLine("Please enter your first number");
+                Console.WriteLine("Enter \"Q\" to exit");
+                userinput = Console.ReadLine();
+                Console.WriteLine($"You enter {userinput}");
+
+                try
+                {
+                    // risky code
+                    firstNumber = int.Parse(userinput);
+                    isValid = true;
+                    message = $"Good job! {firstNumber} is a number!";
+
+                }
+                catch (Exception ex)
+                {
+                    if (userinput == "Q" || userinput == "q")
+                    {
+                        Console.WriteLine("Have a nice day!");
+                        isValid = true;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine($"{userinput} is not a number");
+                    }
+                }
+
             }
+            while (isValid == false);
+
+            message = $"Good job! {firstNumber} is a number!";
+
+            do
+            {
+                Console.WriteLine("Please enter your second number");
+                Console.WriteLine("Enter \"Q\" to exit");
+                userinput = Console.ReadLine();
+                Console.WriteLine($"You enter {userinput}");
+
+                try
+                {
+                    // risky code
+                    secondNumber = int.Parse(userinput);
+                    isValid = true;
+                    message = $"Good job! {firstNumber} is a number!";
+
+                }
+                catch (Exception ex)
+                {
+                    if (userinput == "Q" || userinput == "q")
+                    {
+                        Console.WriteLine("Have a nice day!");
+                        isValid = true;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine($"{userinput} is not a number");
+                    }
+                }
+
+            }
+            while (isValid == false);
+
+            message = $"Good job! {secondNumber} is a number!";
+
+            do
+            {
+                Console.WriteLine("Please enter a number to select how you'd like to solve! (1-4)");
+                Console.WriteLine("Enter \"Q\" to exit");
+                userinput = Console.ReadLine();
+                Console.WriteLine($"You enter {userinput}");
+
+                try
+                {
+                    // risky code
+                    thirdNumber = int.Parse(userinput);
+                    isValid = true;
+                    message = $"Good job! {thirdNumber} is a number!";
+
+                }
+                catch (Exception ex)
+                {
+                    if (userinput == "Q" || userinput == "q")
+                    {
+                        Console.WriteLine("Have a nice day!");
+                        isValid = true;
+                    }
+
+                    else if (userinput = "1")
+                    {
+                        Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}");
+                        isValid = true;
+                    }
+
+                    else if (userinput = "2")
+                    {
+                        Console.WriteLine($"{firstNumber} - {secondNumber} = {firstNumber - secondNumber}");
+                        isValid = true;
+                    }
+
+                    else if (userinput = "3")
+                    {
+                        Console.WriteLine($"{firstNumber} * {secondNumber} = {firstNumber * secondNumber}");
+                        isValid = true;
+                    }
+
+                    else if (userinput = "4")
+                    {
+                        Console.WriteLine($"{firstNumber} / {secondNumber} = {firstNumber / secondNumber}");
+                        isValid = true;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine($"{userinput} is not a number");
+                    }
+                }
+
+            }
+            while (isValid == false);
+
+            message = $"Good job! {thirdNumber} is a number!";
 
             Console.Read();
 
