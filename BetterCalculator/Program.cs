@@ -3,7 +3,7 @@ Hunter Clezie
 Spring 2026
 RCET2265
 BetterCalculator
-github url: 
+github url: https://github.com/hunterclezie-pixel/BetterCalculator.git
 */
 using System.ComponentModel.Design;
 
@@ -20,7 +20,6 @@ namespace BetterCalculator
             string message = "";
             bool userQuit = false, validResponse = false;
             
-
             do
             {
                 //First Number
@@ -95,16 +94,16 @@ namespace BetterCalculator
                     switch (userinput)
                     {
                         case "1":
-                            Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}");
+                            Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}"); //addition
                             break;
                         case "2":
-                            Console.WriteLine($"{firstNumber} - {secondNumber} = {firstNumber - secondNumber}");
+                            Console.WriteLine($"{firstNumber} - {secondNumber} = {firstNumber - secondNumber}"); //subtraction
                             break;
                         case "3":
-                            Console.WriteLine($"{firstNumber} * {secondNumber} = {firstNumber * secondNumber}");
+                            Console.WriteLine($"{firstNumber} * {secondNumber} = {firstNumber * secondNumber}"); //multiplication
                             break;
                         case "4":
-                            Console.WriteLine($"{firstNumber} / {secondNumber} = {firstNumber / secondNumber}");
+                            Console.WriteLine($"{firstNumber} / {secondNumber} = {firstNumber / secondNumber}"); //division
                             break;
 
                         case "Q":
