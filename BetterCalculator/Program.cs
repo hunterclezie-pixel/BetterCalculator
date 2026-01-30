@@ -19,20 +19,21 @@ namespace BetterCalculator
             bool isValid = false;
             string message = "";
             bool userQuit = false, validResponse = false;
+            
 
             do
             {
                 //First Number
                 do
                 {
-                    Console.WriteLine("Please enter your first number");
-                    Console.WriteLine("Enter \"Q\" to exit");
+                    Console.WriteLine("Welcome! Please enter your first number");
+                    Console.WriteLine("Enter \"Q\" to exit whenever you'd Like");
                     userinput = Console.ReadLine();
-                    Console.WriteLine($"You enter {userinput}");
+                    Console.Clear();
 
                     try
                     {
-                        Console.WriteLine($"you entered {int.Parse(userinput)}");
+                        Console.WriteLine($"you entered {int.Parse(userinput)} as your first number");
                         firstNumber = int.Parse(userinput);
                         validResponse = true;
                     }
@@ -45,27 +46,25 @@ namespace BetterCalculator
 
                         else
                         {
-                            Console.WriteLine($"{userinput} is not a number");
+                            Console.WriteLine($"{userinput} is not a number, please try again");
                         }
 
                     }
                 } while (validResponse == false && userQuit == false);
-
-                Console.WriteLine("end of first loop");
 
                 //Second number
                 validResponse = false; //reset flag
                 while (validResponse == false && userQuit == false)
                 {
                     Console.WriteLine("Please enter your second number");
-                    Console.WriteLine("Enter \"Q\" to exit");
+                    Console.WriteLine("Enter \"Q\" to exit whenever you'd Like!");
                     userinput = Console.ReadLine();
-                    Console.WriteLine($"You enter {userinput}");
+                    Console.Clear();
 
                     try
                     {
                         secondNumber = int.Parse(userinput);
-                        Console.WriteLine($"you entered {int.Parse(userinput)}");
+                        Console.WriteLine($"you entered {int.Parse(userinput)} as your second number");
                         validResponse = true;
                     }
                     catch (Exception)
@@ -77,21 +76,20 @@ namespace BetterCalculator
 
                         else
                         {
-                            Console.WriteLine($"{userinput} is not a number");
+                            Console.WriteLine($"{userinput} is not a number, please try again");
                         }
 
                     }
                 }
-
-                Console.WriteLine("end of second loop");
 
                 //Operation Choice
                 validResponse = false; //reset flag
                 while (validResponse == false && userQuit == false)
                 {
                     validResponse = true; //option selection reset
-                    Console.WriteLine("Please select a choice: \n 1. Addition \n 2. Subtraction \n 3. multiplication \n 4. division");
+                    Console.WriteLine("Please select how you would like to solve: \n 1. Addition \n 2. Subtraction \n 3. multiplication \n 4. division");
                     userinput = Console.ReadLine();
+                    Console.Clear();
                     thirdNumber = int.Parse(userinput);
 
                     switch (userinput)
