@@ -18,137 +18,119 @@ namespace BetterCalculator
             int firstNumber = 0, secondNumber = 0, thirdNumber = 0;
             bool isValid = false;
             string message = "";
+            bool userQuit = false, validResponse = false;
 
-            //First Number
             do
             {
-                Console.WriteLine("Please enter your first number");
-                Console.WriteLine("Enter \"Q\" to exit");
-                userinput = Console.ReadLine();
-                Console.WriteLine($"You enter {userinput}");
-
-                try
+                //First Number
+                do
                 {
-                    // risky code
-                    firstNumber = int.Parse(userinput);
-                    isValid = true;
-                    message = $"Good job! {firstNumber} is a number!";
+                    Console.WriteLine("Please enter your first number");
+                    Console.WriteLine("Enter \"Q\" to exit");
+                    userinput = Console.ReadLine();
+                    Console.WriteLine($"You enter {userinput}");
 
-                }
-                catch (Exception)
-                {
-                    if (userinput == "Q" || userinput == "q")
-                    {                                                                                       
-                        Console.WriteLine("Have a nice day!");
-                        isValid = true;
-                    }
-
-                    else
+                    try
                     {
-                        Console.WriteLine($"{userinput} is not a number");
+                        Console.WriteLine($"you entered {int.Parse(userinput)}");
+                        firstNumber = int.Parse(userinput);
+                        validResponse = true;
                     }
-                }
-
-            }
-            while (isValid == false);
-
-            message = $"Good job! {firstNumber} is a number!";
-
-            //Second Number
-            do
-            {
-                Console.WriteLine("Please enter your second number");
-                Console.WriteLine("Enter \"Q\" to exit");
-                userinput = Console.ReadLine();
-                Console.WriteLine($"You enter {userinput}");
-
-                try
-                {
-                    // risky code
-                    secondNumber = int.Parse(userinput);
-                    isValid = true;
-                    message = $"Good job! {secondNumber} is a number!";
-
-                }
-                catch (Exception)
-                {
-                    if (userinput == "Q" || userinput == "q")
+                    catch (Exception)
                     {
-                        Console.WriteLine("Have a nice day!");
-                        isValid = true;
-                    }
+                        if (userinput == "Q" || userinput == "q")
+                        {
+                            userQuit = true;
+                        }
 
-                    else
+                        else
+                        {
+                            Console.WriteLine($"{userinput} is not a number");
+                        }
+
+                    }
+                } while (validResponse == false && userQuit == false);
+
+                Console.WriteLine("end of first loop");
+
+                //Second number
+                validResponse = false; //reset flag
+                while (validResponse == false && userQuit == false)
+                {
+                    Console.WriteLine("Please enter your second number");
+                    Console.WriteLine("Enter \"Q\" to exit");
+                    userinput = Console.ReadLine();
+                    Console.WriteLine($"You enter {userinput}");
+
+                    try
                     {
-                        Console.WriteLine($"{userinput} is not a number");
-                        isValid = false;
+                        secondNumber = int.Parse(userinput);
+                        Console.WriteLine($"you entered {int.Parse(userinput)}");
+                        validResponse = true;
+                    }
+                    catch (Exception)
+                    {
+                        if (userinput == "Q" || userinput == "q")
+                        {
+                            userQuit = true;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine($"{userinput} is not a number");
+                        }
+
                     }
                 }
 
-            }
-            while (isValid == false);
+                Console.WriteLine("end of second loop");
 
-            message = $"Good job! {secondNumber} is a number!";
-
-            //Third Number
-            do
-            {
-                Console.WriteLine("Please enter a number to select how you'd like to solve! (1-4)");
-                Console.WriteLine("Enter \"Q\" to exit");
-                userinput = Console.ReadLine();
-                switch (userinput)
+                //Operation Choice
+                validResponse = false; //reset flag
+                while (validResponse == false && userQuit == false)
                 {
-                    case "1":
-                        Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}");
-                        break;
-                    case "2":
-                        Console.WriteLine($"{firstNumber} - {secondNumber} = {firstNumber - secondNumber}");
-                        break;
-                    case "3":
-                        Console.WriteLine($"{firstNumber} * {secondNumber} = {firstNumber * secondNumber}");
-                        break;
-                    case "4":
-                        Console.WriteLine($"{firstNumber} / {secondNumber} = {firstNumber / secondNumber}");
-                        break;
-                }
-
-                try
-                {
-                    // risky code
+                    validResponse = true; //option selection reset
+                    Console.WriteLine("Please select a choice: \n 1. Addition \n 2. Subtraction \n 3. multiplication \n 4. division");
+                    userinput = Console.ReadLine();
                     thirdNumber = int.Parse(userinput);
-                    isValid = true;
-                    message = $"Good job! {thirdNumber} is a number!";
 
+                    switch (userinput)
+                    {
+                        case "1":
+                            Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}");
+                            break;
+                        case "2":
+                            Console.WriteLine($"{firstNumber} - {secondNumber} = {firstNumber - secondNumber}");
+                            break;
+                        case "3":
+                            Console.WriteLine($"{firstNumber} * {secondNumber} = {firstNumber * secondNumber}");
+                            break;
+                        case "4":
+                            Console.WriteLine($"{firstNumber} / {secondNumber} = {firstNumber / secondNumber}");
+                            break;
+
+                        case "Q":
+                            userQuit = true;
+                            break;
+
+                        case "q":
+                            userQuit = true;
+                            break;
+
+                        default:
+                            Console.WriteLine($"{userinput} is not an option, please try again!");
+                            validResponse = false;
+                            break;
+                    }
                 }
-                catch (Exception)
-                {
-                    if (userinput == "Q" || userinput == "q")
-                    {
-                        Console.WriteLine("Have a nice day!");
-                        isValid = true;
-                    }
 
-                    else if (userinput >= "4") //error here
-                    {
-                        Console.WriteLine($"{userinput} This isn't an option, try again!");
-                        isValid=false;
-                    }
-                    
-                    else
-                    {
-                    Console.WriteLine($"{userinput} is not a number");
-                    isValid = false;
-                    }
-                }
-
+            } while (userQuit == false);
+            {
+                Console.WriteLine("Have a great day!");
             }
-            while (isValid == false);
 
-            message = $"Good job! {thirdNumber} is a number!";
-
-            //Pause
+            //pause
             Console.Read();
-
         }
     }
 }
