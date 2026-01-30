@@ -128,10 +128,16 @@ namespace BetterCalculator
                         isValid = true;
                     }
 
+                    else if (userinput >= "4") //error here
+                    {
+                        Console.WriteLine($"{userinput} This isn't an option, try again!");
+                        isValid=false;
+                    }
+                    
                     else
                     {
-                        Console.WriteLine($"{userinput} is not a number");
-                        isValid = false;
+                    Console.WriteLine($"{userinput} is not a number");
+                    isValid = false;
                     }
                 }
 
