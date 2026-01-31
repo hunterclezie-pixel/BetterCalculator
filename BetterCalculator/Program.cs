@@ -18,14 +18,14 @@ namespace BetterCalculator
             int firstNumber = 0, secondNumber = 0, thirdNumber = 0;
             bool isValid = false;
             string message = "";
-            bool userQuit = false, validResponse = false;
+            bool userQuit = false, validResponse = false; //To allow the user to quit at any time
             
             do
             {
-                //First Number
+                //First Number input
                 do
                 {
-                    Console.WriteLine("Welcome! Please enter your first number");
+                    Console.WriteLine("Welcome to the calculator! Please enter your first whole number");
                     Console.WriteLine("Enter \"Q\" to exit whenever you'd Like");
                     userinput = Console.ReadLine();
                     Console.Clear();
@@ -51,11 +51,11 @@ namespace BetterCalculator
                     }
                 } while (validResponse == false && userQuit == false);
 
-                //Second number
+                //Second number input
                 validResponse = false; //reset flag
                 while (validResponse == false && userQuit == false)
                 {
-                    Console.WriteLine("Please enter your second number");
+                    Console.WriteLine("Please enter your second whole number");
                     Console.WriteLine("Enter \"Q\" to exit whenever you'd Like!");
                     userinput = Console.ReadLine();
                     Console.Clear();
@@ -81,7 +81,7 @@ namespace BetterCalculator
                     }
                 }
 
-                //Operation Choice
+                //Operation Choice input 1 through 4
                 validResponse = false; //reset flag
                 while (validResponse == false && userQuit == false)
                 {
